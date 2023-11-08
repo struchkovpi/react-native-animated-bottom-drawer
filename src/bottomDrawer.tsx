@@ -225,7 +225,7 @@ const BottomDrawer: ForwardRefRenderFunction<
   };
 
   return (
-    <>
+    <View>
       <Animated.View
         style={{
           opacity: animatedHeight.interpolate({
@@ -258,7 +258,7 @@ const BottomDrawer: ForwardRefRenderFunction<
           {children}
         </BottomSheetContext.Provider>
       </Animated.View>
-    </>
+    </View>
   );
 };
 
