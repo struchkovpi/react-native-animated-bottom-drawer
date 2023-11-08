@@ -100,7 +100,7 @@ const BottomDrawer: ForwardRefRenderFunction<
   const handleClose = () => {
     Animated.timing(animatedHeight, {
       useNativeDriver: true,
-      toValue: screenHeight,
+      toValue: screenHeight - 100,
       easing: Easing.in(Easing.ease),
       duration: closeDuration,
     }).start(() => {
