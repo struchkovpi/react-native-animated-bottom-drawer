@@ -225,13 +225,7 @@ const BottomDrawer: ForwardRefRenderFunction<
   };
 
   return (
-    <Modal
-      transparent
-      statusBarTranslucent
-      visible={modalVisible}
-      onRequestClose={() => {
-        handleKeyboardAndDrawerClose('backPress', closeOnPressBack);
-      }}>
+    <>
       <Animated.View
         style={{
           opacity: animatedHeight.interpolate({
@@ -264,7 +258,7 @@ const BottomDrawer: ForwardRefRenderFunction<
           {children}
         </BottomSheetContext.Provider>
       </Animated.View>
-    </Modal>
+    </>
   );
 };
 
