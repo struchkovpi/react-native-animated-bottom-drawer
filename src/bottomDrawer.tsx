@@ -227,22 +227,6 @@ const BottomDrawer: ForwardRefRenderFunction<
   return (
     <View>
       <Animated.View
-        style={{
-          opacity: animatedHeight.interpolate({
-            inputRange: [screenHeight - lastPosition.current, screenHeight],
-            outputRange: [backdropOpacity, 0],
-            extrapolate: 'clamp',
-          }),
-          flex: 1,
-        }}>
-        <Pressable
-          style={{flex: 1, backgroundColor: backdropColor}}
-          onPress={() => {
-            handleKeyboardAndDrawerClose('backDrop', closeOnBackdropPress);
-          }}
-        />
-      </Animated.View>
-      <Animated.View
         {...(gestureMode === 'content' && panResponder.panHandlers)}
         style={[
           styles.container,
