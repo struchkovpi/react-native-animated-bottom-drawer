@@ -1,6 +1,6 @@
 {
   "name": "react-native-animated-bottom-drawer",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
