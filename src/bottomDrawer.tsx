@@ -205,7 +205,7 @@ const BottomDrawer: ForwardRefRenderFunction<
     snapToIndex: handleSnapToIndex,
     close: handleClose,
     isOpen: handleIsOpen,
-    currentIndex: currentIndex,
+    currentIndex: currentIndex.current,
   };
 
   useImperativeHandle(ref, (): any => bottomSheetMethods);
