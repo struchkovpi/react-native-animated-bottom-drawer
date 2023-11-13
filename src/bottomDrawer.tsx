@@ -50,6 +50,7 @@ const BottomDrawer: ForwardRefRenderFunction<
     closeOnPressBack = true,
     backdropOpacity = defaultBackdropOpacity,
     onBackdropPress = null,
+    onIndexChange = null,
     closeOnBackdropPress = true,
     initialHeight = defaultInitialHeight,
     children,
@@ -204,6 +205,7 @@ const BottomDrawer: ForwardRefRenderFunction<
     snapToIndex: handleSnapToIndex,
     close: handleClose,
     isOpen: handleIsOpen,
+    currentIndex: currentIndex,
   };
 
   useImperativeHandle(ref, (): any => bottomSheetMethods);
@@ -232,7 +234,8 @@ const BottomDrawer: ForwardRefRenderFunction<
           styles.container,
           customStyles.container,
           {transform: [{translateY: animatedHeight}]},
-        ]}>
+        ]}
+        onTouchEnd={() => {onIndexChange && onIndexChange();}}>
         <View
           {...(gestureMode === 'handle' && panResponder.panHandlers)}
           style={[styles.handleContainer, customStyles.handleContainer]}>
