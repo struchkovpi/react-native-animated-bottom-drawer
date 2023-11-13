@@ -13,6 +13,7 @@ export interface BottomDrawerMethods {
   close(): void;
   snapToPosition: SnapToPosition;
   snapToIndex: (index: number) => void;
+  currentIndex: number;
 }
 
 export interface BottomDrawerWithRef extends BottomDrawerProps {
@@ -34,6 +35,7 @@ export type BottomDrawerProps = {
   onClose?: () => void;
   onOpen?: () => void;
   onBackPress?: () => void;
+  onIndexChange?: () => void;
   children: ReactNode;
   openOnMount?: boolean;
   initialHeight?: number;
