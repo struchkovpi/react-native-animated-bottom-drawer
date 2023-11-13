@@ -70,7 +70,7 @@ const BottomDrawer: ForwardRefRenderFunction<
   const animatedHeight = useRef(new Animated.Value(screenHeight)).current;
   const lastPosition = useRef<number>(initialHeight);
   const currentIndex = useRef<number>(initialIndex);
-
+  const [idx, setIdx] = useState(0);
   const checkIfAvailable = (index: number) => {
     if (!enableSnapping || snapPoints.length <= index || index < 0) {
       return false;
@@ -179,10 +179,12 @@ const BottomDrawer: ForwardRefRenderFunction<
         animatedHeight.flattenOffset();
         const {dy} = gestureState;
         if (dy < -safeTopOffset && checkIfAvailable(currentIndex.current + 1)) {
+          setIdx(currentIndex.current + 1);
           return handleSnapToIndex(currentIndex.current + 1);
         }
         if (dy > safeTopOffset) {
           if (checkIfAvailable(currentIndex.current - 1)) {
+            setIdx(currentIndex.current - 1);
             return handleSnapToIndex(currentIndex.current - 1);
           }
           if (closeOnDragDown) {
@@ -205,7 +207,7 @@ const BottomDrawer: ForwardRefRenderFunction<
     snapToIndex: handleSnapToIndex,
     close: handleClose,
     isOpen: handleIsOpen,
-    currentIndex: currentIndex.current,
+    currentIndex: idx,
   };
 
   useImperativeHandle(ref, (): any => bottomSheetMethods);
